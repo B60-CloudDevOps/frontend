@@ -1,6 +1,6 @@
 FROM            docker.io/redhat/ubi9 
 RUN             dnf module disable nginx -y && \
-                dnf enable nginx:1.24 -y && \
+                dnf module enable nginx:1.24 -y && \
                 dnf install -y nginx && \
                 dnf clean all && \
                 rm -rf /usr/share/nginx/html/*
