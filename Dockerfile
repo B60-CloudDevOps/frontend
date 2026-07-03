@@ -7,4 +7,5 @@ RUN             dnf module disable nginx -y && \
 ADD             ./ /usr/share/nginx/html/
 COPY            ./nginx.conf /etc/nginx/nginx.conf
 ENTRYPOINT      ["nginx", "-g", "daemon off;"]
+EXPOSE          80       
 # This will be executed as a root user. But using securit context at podlelve, we wll enforce to run it as non-root user
