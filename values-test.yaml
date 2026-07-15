@@ -27,3 +27,5 @@ failureThreshold: 3
 
 service:
   type: LoadBalancer
+
+# infra
