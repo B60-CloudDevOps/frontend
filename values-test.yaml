@@ -1,0 +1,29 @@
+component:
+  name: frontend
+  version: v03
+  replicas: 2
+  image: public.ecr.aws/w2x3d9u7/roboshop-60/frontend:v03
+
+minReplicas: 2
+maxReplicas: 10
+
+cpu:
+  averageUtilization: 70
+
+appImage: public.ecr.aws/w2x3d9u7/roboshop-60/frontend
+appVersion: v03
+appPort: 80
+probes:
+  liveness:
+    path: /health
+    port: 80
+  readiness:
+    path: /health
+    port: 80
+initialDelaySeconds: 10
+periodSeconds: 5  
+timeoutSeconds: 3
+failureThreshold: 3
+
+service:
+  type: LoadBalancer
